@@ -1,0 +1,45 @@
+//멀티펑션기능 버튼 구현 시 필요한 코드
+/*
+void chTime() {
+	Serial.println();
+	Serial.println("interrupted");
+	bu_t_reading = digitalRead(I_BUTTON_T);
+	Serial.println(bu_t_reading);
+	if (bu_t_state != last_bu_t_state) {
+		Serial.println("debounced");
+		lastDebounceTime = time;
+	}
+
+	if ((time - lastDebounceTime) > debounceDelay) {
+		Serial.println("really changed");
+		if (bu_t_reading != bu_t_state) {
+			bu_l_state = bu_t_reading;
+		}
+		Serial.println(bu_l_state);
+		if (bu_t_state == 0) {
+			bu_t_w = time;
+			Serial.println("button pressed");
+			timeCheck = true;
+		}
+		else {
+			Serial.println("button released");
+			if ((time - bu_t_w) < bu_interval) {
+				if (tchange == 1) {
+					Serial.println("hour changed");
+					hour += 1;
+					if (hour > 24) hour = 0;
+				}
+				else if (tchange == 2) {
+					Serial.println("min changed");
+					min += 1;
+					if (min > 60) min = 0;
+				}
+				timeCheck = false;
+			}
+		}
+	}
+	last_bu_t_state = bu_t_reading;
+}
+
+void chled() {
+}*/

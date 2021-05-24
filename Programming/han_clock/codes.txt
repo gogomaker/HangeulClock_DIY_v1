@@ -1,0 +1,40 @@
+
+	if (time > bu_w + 10) {
+		bu_w = time;
+
+		if (digitalRead(BUTTON_T) == LOW && state == LOW) {
+			current_high = millis();
+			state = HIGH;
+			Serial.println("FirstPush");
+		}
+		else if (digitalRead(BUTTON_T) == LOW && state == HIGH) {
+			Serial.println("SecondPush");
+			current_low = millis();
+			state = LOW;
+			Serial.println(current_high);
+			Serial.println(current_low);
+
+			if (1 < (current_low - current_high) && (current_low - current_high) < 1500) { //짧은 누름
+				if (tchange == 1) {	//시간변경중
+					hour += 1;
+					if (hour >= 24) sec, min, hour = 0;
+					Serial.println("changeHour");
+				}
+				else if (tchange == 2) {
+					min += 1;
+					if (min >= 60) min = 0;
+					Serial.println("changeMinute");
+				}
+			}
+			else if (1500 <=(current_low - current_high) && (current_low - current_high) < 2600) { //긴 누름
+				tchange += 1;
+				if (tchange > 2) tchange = 0;	//모드값이 정해진 범위를 벗어나면
+				else if (tchange == 1) isblinkH = true;
+				else if (tchange == 2) isblinkM = true;
+				Serial.println("changeMode");
+
+			}
+			current_high = current_low = 0;
+		}
+	}
+	displayTime(hour, min);
