@@ -1,3 +1,5 @@
+#include <Arduino.h>
+#line 1 "d:\\.PROJECT\\HangeulClock_DIY_v1\\Programming\\han_clock\\han_clock.ino"
 
 /*
  Name:		han_clock.ino
@@ -41,6 +43,11 @@ bool timeCheck = false;
 bool isblinkH, isblinkM = false;
 byte tchange = 0;
 
+#line 44 "d:\\.PROJECT\\HangeulClock_DIY_v1\\Programming\\han_clock\\han_clock.ino"
+void setup();
+#line 68 "d:\\.PROJECT\\HangeulClock_DIY_v1\\Programming\\han_clock\\han_clock.ino"
+void loop();
+#line 44 "d:\\.PROJECT\\HangeulClock_DIY_v1\\Programming\\han_clock\\han_clock.ino"
 void setup() {
 #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
 	clock_prescale_set(clock_div_1);
@@ -109,3 +116,4 @@ void loop() {
 	blinkHM();
   
 }
+

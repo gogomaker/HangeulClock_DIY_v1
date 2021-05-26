@@ -1,0 +1,8 @@
+{
+    "sketch": "Programming\\han_clock\\han_clock.ino",
+    "configuration": "cpu=atmega328",
+    "board": "arduino:avr:nano",
+    "programmer": "arduino:arduinoasisp",
+    "port": "COM5",
+    "output": ".\\build"
+}
