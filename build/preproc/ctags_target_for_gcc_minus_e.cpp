@@ -17,17 +17,36 @@
 //헤더파일 선언
 # 12 "d:\\.PROJECT\\HangeulClock_DIY_v1\\Programming\\han_clock\\han_clock.ino" 2
 
-volatile unsigned long timer0_millis; //millis 오버플로우 대비 초기화
+# 14 "d:\\.PROJECT\\HangeulClock_DIY_v1\\Programming\\han_clock\\han_clock.ino" 2
+
+//실제 변수 선언
+byte color[12][3]
+{
+  {255, 255, 255},
+  {255, 0, 0},
+  {255, 94, 0},
+  {255, 187, 0},
+  {255, 228, 0},
+  {171, 242, 0},
+  {29, 219, 22},
+  {0, 84, 255},
+  {1, 0, 255},
+  {95, 0, 255},
+  {255, 0, 221},
+  {255, 0, 100}
+};
+
+Adafruit_NeoPixel strip(36, 6, ((1<<6) | (1<<4) | (0<<2) | (2)) /*|< Transmit as G,R,B*/ + 0x0000 /*|< 800 KHz data transmission*/);
+
+extern volatile unsigned long timer0_millis; //millis 오버플로우 대비 초기화
 unsigned long time = 0;
 byte sec, lastSec = 0;
 byte hourPlus, minPlus = 0; //버튼이 눌릴 때 이곳에 값이 임시저장 됨
 byte minRtc, hourRtc = 0; //RTC의 시간값이 저장됨
 byte min, hour = 0; //최종적으로 출력되는 시간값이 저장됨
 bool isResetMillis = false;
-
 byte tMSB, tLSB; //RTC온도관련
 float temp3231;
-
 byte r = 255; //네오픽셀 Red
 byte g = 255; //네오픽셀 Green
 byte b = 255; //네오픽셀 Blue
@@ -36,17 +55,16 @@ byte ledmode = 0; //12개의 색
 long randomBase = 0;
 unsigned long bu_led_w = 0;
 bool ledCheck = false;
-
 bool bu_reading[2] = { 0x1, 0x1 }; //버튼의 실제 상태를 표현하는 변수
 bool bu_state[2] = { 0x1, 0x1 }; //체터링을 거른 버튼의 상태를 표현하는 변수
 bool last_bu_state[2] = { 0x1, 0x1 }; //마지막 버튼 상태
 unsigned long LastDebounceTime[2] = { 0, 0};
-
 unsigned long bu_t_w, last_bu_t_w = 0; //시간 버튼이 언제 눌렸는가
 unsigned long wait_t, wait_m = 0; //LED깜박일 때 사용
 bool timeCheck = false;
 bool isblinkH, isblinkM = false;
 byte tchange = 0;
+
 
 void setup() {
 

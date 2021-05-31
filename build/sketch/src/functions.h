@@ -1,8 +1,9 @@
 #line 1 "d:\\.PROJECT\\HangeulClock_DIY_v1\\Programming\\han_clock\\src\\functions.h"
 //This .h file's name is "functions.h"
+#pragma once
 
-#ifndef __FUNCTOINS_H__
-#define __FUNCTOINS_H__
+#ifndef __FUNCTOINS_H_
+#define __FUNCTOINS_H_
 
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
@@ -19,24 +20,9 @@
 #define debounceDelay 50
 #define bu_interval 1200
 
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
+extern Adafruit_NeoPixel strip;
 
-
-byte color[12][3]
-{
-  {255, 255, 255},
-  {255, 0, 0},
-  {255, 94, 0},
-  {255, 187, 0},
-  {255, 228, 0},
-  {171, 242, 0},
-  {29, 219, 22},
-  {0, 84, 255},
-  {1, 0, 255},
-  {95, 0, 255},
-  {255, 0, 221},
-  {255, 0, 100}
-};
+extern byte color[12][3];
 
 extern unsigned long time;
 extern byte sec, lastSec;
@@ -65,33 +51,20 @@ extern bool isblinkH, isblinkM;
 extern byte tchange;
 
 void displayTime(int h, int m);
-
 int updateHour(int h);
-
 int updateMin(int m);
-
 void printled(int n);
-
 void ledclear();
-
 void changeTimeButton();
-
 void changeLedButton();
-
 void longTimeButton();
-
 void longLedButton();
-
 byte decToBcd(byte val);
-
 void set3231Date();
-
 void get3231Date();
-
 float get3231Temp();
-
 void blinkHM();
-
 void showSerialTime();
+
 
 #endif
