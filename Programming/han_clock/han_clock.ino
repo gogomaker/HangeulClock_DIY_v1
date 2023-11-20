@@ -1,4 +1,3 @@
-
 /*
  Name:		han_clock.ino
  Created:	2020-08-25 오후 5:32:32
@@ -8,8 +7,6 @@
 */
 
 //헤더파일 선언
-#include <Arduino.h>
-
 #include "src/functions.h"
 
 //실제 변수 및 객체 선언

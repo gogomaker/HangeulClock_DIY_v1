@@ -4,9 +4,7 @@
 #ifndef __FUNCTOINS_H_
 #define __FUNCTOINS_H_
 
-#include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
-#include <avr/power.h>
 #ifdef __AVR__
 #endif
 #include <Wire.h>

@@ -8,10 +8,7 @@
             "intelliSenseMode": "windows-msvc-x64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\**",
-                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\**",
-                "C:\\Users\\daseu\\Documents\\Arduino\\**",
-                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include\\**"
+                "C:\\Users\\daseu\\AppData\\Local\\Programs\\Arduino IDE\\**"
             ],
             "forcedInclude": [],
             "cStandard": "c17",
