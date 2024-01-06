@@ -1,12 +1,12 @@
 /*
- Name:		han_clock.ino
- Created:	2023-12-08 오후 5:40:17
- Author:	gogomaker
+	Name:		han_clock.ino
+	Created:	2023-12-08 오후 5:40:17
+	Author:	gogomaker
 */
 
 #include "src/functions.h"
 
-Adafruit_NeoPixel strip(36, 6, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip(36, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 extern volatile unsigned long timer0_millis; //millis 오버플로우 대비 초기화
 unsigned long time = 0;
@@ -40,7 +40,7 @@ void setup() {
 	#endif
 	Wire.begin();
 	//시리얼 모니터
-	Serial.begin(9600);
+	Serial.begin(115200);
 	Serial.println("Hangeul Clock has turn ON");
 	Serial.println("Clock start");
 	//네오픽셀 초기설정

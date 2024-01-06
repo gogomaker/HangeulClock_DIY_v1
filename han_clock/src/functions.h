@@ -10,9 +10,9 @@
 #include <Wire.h>
 
 #define DS3231_I2C_ADDRESS 104
-#define LED_PIN 10
-#define BUTTON_T 11
-#define BUTTON_LED 12
+#define LED_PIN 2
+#define BUTTON_T 4
+#define BUTTON_LED 3
 #define LED_COUNT 36
 #define debounceDelay 50
 #define bu_interval 1200
